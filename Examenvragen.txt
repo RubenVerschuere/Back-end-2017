@@ -1,0 +1,1 @@
+Hoe kan node async werken? -> Met event loop (EXAMENVRAAG)

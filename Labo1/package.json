@@ -1,0 +1,17 @@
+{
+  "name": "labo1",
+  "version": "1.0.0",
+  "description": "een test van een package",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "test\\json"
+  ],
+  "author": "Ruben",
+  "license": "ISC",
+  "dependencies": {
+    "jshint": "^2.9.5"
+  }
+}
