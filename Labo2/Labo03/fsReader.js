@@ -1,5 +1,5 @@
 const fs = require("fs");
-let fileName = __dirname + '\MyTextfile.txt'; //absolute path vd file map
+let fileName = __dirname + '../Data/MyTextfile.txt'; //absolute path vd file map
 console.log(fileName);
 
 /*fs.exists(fileName, function (exists) {
