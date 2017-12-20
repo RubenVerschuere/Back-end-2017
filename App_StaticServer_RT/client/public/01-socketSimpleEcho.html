@@ -1,0 +1,33 @@
+﻿<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>socketio client</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <h1>Socket echo voorbeeld: </h1>
+    <p>
+        <div id="socketResponse"></div>
+    </p>
+  
+    <script>
+        console.log("initialised sockets");
+
+        var socketResponse = document.getElementById("socketResponse");
+
+        //1.socket initialiseren
+        var socket = io.connect(location.protocol + "//" + location.host);  //inclusief port
+
+        //2.stuur message event naar server
+        socket.emit("clientMessage", "Hello from client socket")
+
+        //3.bij ontvangst van echo event vd server
+        socket.on("serverMessage", function (data) {
+            socketResponse.innerHTML = "De socket server response is:" + data;
+        })
+    </script>
+</body>
+</html>

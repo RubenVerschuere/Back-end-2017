@@ -1,0 +1,46 @@
+﻿[
+  {
+    "location": "Kortrijk",
+    "products": [
+      {
+        "product": {
+          "name": "laptopX",
+          "cost": 1250,
+          "stock": 5,
+          "tags": [
+            "Compact",
+            "Windows",
+            "Promotion"
+          ]
+        }
+      },
+      {
+        "product": {
+          "name": "laptopY",
+          "cost": 1250,
+          "stock": 5,
+          "tags": [
+            "Standaard",
+            "Windows",
+            "Low performance"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "location": "Brugge",
+    "products": {
+      "product": {
+        "name": "laptopZ",
+        "cost": 1950,
+        "stock": 0,
+        "tags": [
+          "Design",
+          "OS",
+          "Powerfull"
+        ]
+      }
+    }
+  }
+]

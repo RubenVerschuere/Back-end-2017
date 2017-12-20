@@ -4,7 +4,7 @@ const winston = new require("winston");
 let logger = new winston.Logger({
     level:'info', 
     transports: [
-        new winston.transports.File({filename: './error.log'})
+        new winston.transports.File({filename: '../Log/error.log'})
     ]
 });
 

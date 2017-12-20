@@ -1,1 +1,6 @@
 Hoe kan node async werken? -> Met event loop (EXAMENVRAAG)
+Wat is middleware en geef een voorbeeld? p.137 (voorbeeld passport.js is een middleware) Middleware algemeen is een functie, die 1 input en 1 output heeft. Je kan verschillende middlewares achter elkaar plaatsen
+
+Theorie:
+5 mutliple choice
+5 open vragen

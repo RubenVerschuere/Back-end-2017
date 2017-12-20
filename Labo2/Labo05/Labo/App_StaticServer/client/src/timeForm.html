@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>zomertijd  - wintertijd</title>
+    <style>
+        body {
+            width: 800px;
+            margin: auto;
+        }
+
+        input {
+            display: block;
+        }
+
+        fieldset {
+            width: 425px;
+        }
+
+
+        label {
+            vertical-align: top;
+        }
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+    <script src="js/XHR.js"></script>
+    <script type="text/javascript">
+        //$(document).ready(function () {
+        //    $('input[type="submit"]').on('click', function () {
+        //        $.ajax({
+        //            dataType: "json",
+        //            url: window.location.origin, //   "http://localhost:5000", NIET HARDCODED window.location.host
+        //            data: $("#form").serialize(),
+        //            success: function (data) {
+        //                console.log("success: " + data); //object
+        //                document.getElementById("test").innerHTML = "De tijd is nu :" + data.hour + " uur";
+        //            }
+        //        });
+        //        return false; //stilleggen van submit
+        //    });
+        //});
+
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            console.log("DOM fully loaded and parsed");
+            addListeners();
+
+        });
+        var addListeners = () => {
+            let btn = document.querySelector('input[type="submit"]');
+            btn.addEventListener("click", function (e) {
+                sendForm(e);
+               
+            },false);
+        }
+        var sendForm = function (e) {
+            //1.stop submit en page refresh(!)
+            e.preventDefault();
+            //let form = e.target;
+            XHR.postData(window.location.origin, document.querySelector("form"), (err,data) => {
+                console.log("success: " + data); //object
+                let obj = JSON.parse(data);
+                        document.getElementById("test").innerHTML = "De tijd is nu :" + obj.hour + " uur en " + obj.minute + " minuten.";
+                    });
+            return false; //stil leggen submit
+
+        }
+
+
+    </script>
+
+</head>
+<body>
+    <!-- "application/x-www-form-urlencoded" of "multipart/form-data"-->
+    <form id="form" name="form" method="post" enctype="multipart/form-data">
+        <!--<form id="form" method="post" enctype="application/x-www-form-urlencoded">-->
+            <fieldset id="time">
+                <legend>Zomertijd - Wintertijd</legend>
+                <p>
+                    <label>Selecteer wintertijd of zomertijd:</label>
+
+                    <input type="radio"
+                           name="rbTime"
+                           id="zomer"
+                           value="zomer"
+                           checked="checked" />
+                    <label for="zomer">Zomertijd</label>
+
+                    <input type="radio"
+                           name="rbTime"
+                           id="winter"
+                           value="winter" />
+                    <label for="winter">Wintertijd</label>
+                </p>
+
+                <p>
+                    <input type="submit" value="kies zomer of winter" />
+                </p>
+            </fieldset>
+        </form>
+        <div id="test"></div>
+</body>
+</html>

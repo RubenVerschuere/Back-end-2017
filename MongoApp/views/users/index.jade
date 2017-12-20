@@ -1,0 +1,9 @@
+extends ../layout 
+block content
+    h1= title 
+    ul
+    - for(var user in userlist) {
+        li  
+            span= userlist[user].lastName + " " +  userlist[user].firstName
+            a(class="button", href="/users/details/" + userlist[user].id) Details
+    - };

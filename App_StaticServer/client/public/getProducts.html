@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>getProducts</title>
+    <script src="js/XHR.js"></script>
+</head>
+<body>
+    <section id="products">
+    </section>
+
+
+    <script>
+        client = {}
+        client.api = (function () {
+            let start = function () {
+                document.addEventListener("DOMContentLoaded", function (event) {
+                    console.log("DOM fully loaded and parsed");
+                    handleAPICall("api/products/Brugge");
+                })
+            }
+
+            let handleAPICall = function (url) {
+                url = location.protocol + "//" + location.host + "/"+url;
+                XHR.loadData(url, function (err, data) {
+                    document.querySelector('#products').innerHTML = data;
+                })
+            }
+
+            return { start }
+        })();
+
+        client.api.start();
+    </script>
+</body>
+</html>
